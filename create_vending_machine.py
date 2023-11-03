@@ -10,25 +10,18 @@ money = [5000, 1000, 500, 100]
 timezone = 17 # 6시 ~ 23시(17시간)
 items_info = {'b1': [850], 'b2': [1500], 'b3': [2000], 'c1': [5250], 'c2': [5500]}
 
-item_count = {}
-customer_choices = {}
-
 for item_info in items_info.values():
     item_info.extend([15, 0])
 
 # items_info --> key: 물품, value: [가격, (남은)물품 개수, 고객 구매 개수]
 print(f'items_info_init: {items_info}')
 
-'''
-    확장성 있게 vending machine 만들기: Class 통해서 객체화
-    e.g. 조건 다양화: 자판기, 현금 지불, 거스름돈, 물품, ... 
-'''
-
 class VendingMachine: # 자판기 class 
-    def __init__(self, money, timezone, items_info):
+    def __init__(self, money, timezone, items_info, beverage_condition='cold'):
         self.money = money # 지불 가능한 현금 종류
         self.timezone = timezone # 판매 가능 시간 e.g. 17시간
         self.items_info = items_info
+        self.beverage_condition = beverage_condition
 
     def calculate(self):
         '''
