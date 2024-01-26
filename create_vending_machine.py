@@ -52,6 +52,29 @@ class VendingMachine: # 자판기 class
         
         return self.items_info, profit
 
+<<<<<<< Updated upstream
+=======
+    def display(self):
+        """ 음료수 객체 조회, 존재하는 상품의 img show """
+        raise NotImplementedError
+    
+
+
+class Drink: # 사용자가 마실때 참고할 기능(?)
+    def __init__(self, name, price, property="juice", temperature="cold"):
+        raise NotImplementedError
+    
+    def put_image(self, np_img):
+        raise NotImplementedError
+
+    def get_image(self):
+        raise NotImplementedError
+
+    def change_temperature(self):
+        raise NotImplementedError
+        
+
+>>>>>>> Stashed changes
 sell_amount = VendingMachine(money, timezone, items_info)
 items_info_final, profit = sell_amount.calculate()
 print(f'items_info_final: {items_info_final}')
