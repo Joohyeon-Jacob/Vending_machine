@@ -16,7 +16,13 @@ for item_info in items_info.values():
 # items_info --> key: 물품, value: [가격, (남은)물품 개수, 고객 구매 개수]
 print(f'items_info_init: {items_info}')
 
-class VendingMachine: # 자판기 class 
+class VendingMachine:
+    def __init__(self):
+        raise NotImplementedError
+
+
+class DrinkVendingMachine(VendingMachine): # 자판기 class
+    #TODO: VendingMachine 상속
     def __init__(self, money, timezone, items_info, beverage_condition='cold'):
         self.money = money # 지불 가능한 현금 종류
         self.timezone = timezone # 판매 가능 시간 e.g. 17시간
@@ -52,15 +58,15 @@ class VendingMachine: # 자판기 class
         
         return self.items_info, profit
 
-<<<<<<< Updated upstream
-=======
+
     def display(self):
         """ 음료수 객체 조회, 존재하는 상품의 img show """
         raise NotImplementedError
     
 
 
-class Drink: # 사용자가 마실때 참고할 기능(?)
+
+class Drink:
     def __init__(self, name, price, property="juice", temperature="cold"):
         raise NotImplementedError
     
@@ -74,7 +80,7 @@ class Drink: # 사용자가 마실때 참고할 기능(?)
         raise NotImplementedError
         
 
->>>>>>> Stashed changes
+
 sell_amount = VendingMachine(money, timezone, items_info)
 items_info_final, profit = sell_amount.calculate()
 print(f'items_info_final: {items_info_final}')
